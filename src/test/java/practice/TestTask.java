@@ -1,4 +1,4 @@
-package com.max.qa.hilan;
+package practice;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;

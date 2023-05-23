@@ -1,6 +1,6 @@
-package com.max.qa.hilan;
+package tests;
 
-import org.openqa.selenium.By;
+import models.Board;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -20,7 +20,7 @@ public class BoardCreationTest  extends TestBase{
             String boardName = "hhh";
             app.getBoard().clickOnPlusButton();
             app.getBoard().selectCreateNewBoard();
-            app.getBoard().fillBoarCreation(boardName);
+            app.getBoard().fillBoarCreation(new Board().setBoardName(boardName));
             app.getBoard().confirmBoardCreation();
             app.getBoard().waitForListButtonInTheBoard();
             String title = app.getTitle();

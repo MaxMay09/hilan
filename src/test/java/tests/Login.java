@@ -1,6 +1,6 @@
-package com.max.qa.hilan;
+package tests;
 
-import org.openqa.selenium.*;
+import models.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -62,6 +62,17 @@ public class Login extends TestBase {
 ////       Set<String> windowHandles1 = wd.getWindowHandles();
 ////        System.out.println(windowHandles1);
         app.getSession().logOut();
+    }    @Test
+    public void negativeloginWithOutPasswordTest() throws InterruptedException {
+        app.cleanCokea();
+        app.getSession().clickLoginButton();
+        app.getSession().fillLoginForm(new User().setEmail("maxmayzel@gmail.com"));
+        app.getSession().confirmLogin();
+        Assert.assertTrue(app.getSession().isErrorPresent(), "Enter your password");
+//        app.cleanCokea();
+//        app.getSession().loginWithoutEmail();
+//       Assert.assertTrue(app.getSession().isErrorPresent(), "Enter your password");
+
     }
 
 

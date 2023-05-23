@@ -1,10 +1,9 @@
-package com.max.qa.hilan;
+package wf;
 
+import models.Board;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -21,11 +20,11 @@ public class BoardHelper extends HelperBase{
     }
 
     public int numberBoarCount() {
-        return ApplicationManager.wd.findElements(By.xpath("//div[@class='boards-page-board-section-header']//a[1]/../../../..//li")).size() - 1;
+        return ApplicationManager.wd.findElements(By.xpath("//ul[@class='boards-page-board-section-list']//../../../../..//li")).size() - 1;
     }
 
-    public void fillBoarCreation(String boardName) {
-        type(By.xpath(" //input[@type='text']"), boardName);
+    public void fillBoarCreation(Board board) {
+        type(By.xpath(" //input[@type='text']"), board.getBoardName());
     }
 
     public void selectCreateNewBoard() {
@@ -56,7 +55,7 @@ public class BoardHelper extends HelperBase{
 
     public void selectFirstBoard() {
         //wd.findElements(By.xpath(""))
-        Click(By.xpath("//div[@class='board-tile-details is-badged']"));
+        Click(By.xpath("//*[@id=\"content\"]/div/div[2]/div/div/div/div/div[2]/div/div/div/div[2]/div/div[2]/ul/li/a/div"));
     }
 
     public void openMenu() {
@@ -79,4 +78,8 @@ public class BoardHelper extends HelperBase{
     }
 
 
+    public boolean isElementDesplayed(By locator, String text) {
+         wd.findElement(locator).getText().equals(text);
+         return true;
+    }
 }

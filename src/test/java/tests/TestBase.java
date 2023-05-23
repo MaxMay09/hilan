@@ -1,7 +1,8 @@
-package com.max.qa.hilan;
+package tests;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import wf.ApplicationManager;
 
 
 public class TestBase {
@@ -18,10 +19,10 @@ public class TestBase {
 
     }
 
-    @AfterMethod
-    public void TearDown() {
-        app.stop();
-    }
+//    @AfterMethod
+//    public void TearDown() {
+//        app.stop();
+//    }
 
 
 }

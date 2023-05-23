@@ -1,4 +1,4 @@
-package com.max.qa.hilan;
+package wf;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,10 +14,14 @@ public class HelperBase {
 
     }
 
+
     public void type(By locator, String text) {
-        Click(locator);
-        ApplicationManager.wd.findElement(locator).clear();//*[@id="login"]
-        ApplicationManager.wd.findElement(locator).sendKeys(text);
+        if(text!=null){
+            Click(locator);
+            ApplicationManager.wd.findElement(locator).clear();//*[@id="login"]
+            ApplicationManager.wd.findElement(locator).sendKeys(text);
+        }
+
     }
 
     public void waitForElement(By locator, int timeOut) {

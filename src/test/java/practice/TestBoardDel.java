@@ -1,4 +1,4 @@
-package com.max.qa.hilan;
+package practice;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;

@@ -1,5 +1,6 @@
-package com.max.qa.hilan;
+package wf;
 
+import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -12,7 +13,7 @@ public class SessionHelper extends HelperBase{
     //=================================================================================================================================
     public void login() throws InterruptedException {
         clickLoginButton();
-        fillLoginForm("maxmayzel@gmail.com", "Rfrnec7_*");
+        fillLoginForm(new User().setEmail("maxmayzel@gmail.com").setPassword( "Rfrnec7_*"));
         confirmLogin();
 
     }
@@ -41,12 +42,12 @@ public class SessionHelper extends HelperBase{
 
     }
 
-    public void fillLoginForm(String email, String password) throws InterruptedException {
-        type(By.xpath("//*[@id=\"user\"]"), email);
+    public void fillLoginForm(User user) throws InterruptedException {
+        type(By.xpath("//*[@id=\"user\"]"), user.getEmail());
         Thread.sleep(5000);
         Click(By.xpath("/html[1]/body[1]/div[1]/section[1]/div[1]/div[1]/div[4]/form[1]/div[1]/div[1]/input[1]"));
         Thread.sleep(5000);
-        type(By.xpath("//input[@id='password']"), password);
+        type(By.xpath("//input[@id='password']"), user.getPassword());
         Thread.sleep(5000);
     }
 
@@ -57,5 +58,16 @@ public class SessionHelper extends HelperBase{
     public void confirmLogin() throws InterruptedException {
         Click(By.xpath("//button[@id='login-submit']//span[@class='css-178ag6o']"));
         Thread.sleep(10000);
+    }
+
+    public void loginWithoutEmail() throws InterruptedException {
+        clickLoginButton();
+        fillLoginForm(new User().setEmail("maxmayzel@gmail.com"));
+        confirmLogin();
+
+    }
+
+    public boolean isErrorPresent() {
+       return isElementPresent(By.cssSelector("#password-error"));
     }
 }
