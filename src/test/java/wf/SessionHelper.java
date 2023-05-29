@@ -13,7 +13,7 @@ public class SessionHelper extends HelperBase{
     //=================================================================================================================================
     public void login() throws InterruptedException {
         clickLoginButton();
-        fillLoginForm(new User().setEmail("maxmayzel@gmail.com").setPassword( "Rfrnec7_*"));
+        fillLoginForm(new User().withEmail("maxmayzel@gmail.com").withPassword( "Rfrnec7_*"));
         confirmLogin();
 
     }
@@ -62,7 +62,7 @@ public class SessionHelper extends HelperBase{
 
     public void loginWithoutEmail() throws InterruptedException {
         clickLoginButton();
-        fillLoginForm(new User().setEmail("maxmayzel@gmail.com"));
+        fillLoginForm(new User().withEmail("maxmayzel@gmail.com"));
         confirmLogin();
 
     }

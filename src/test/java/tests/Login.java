@@ -1,5 +1,6 @@
 package tests;
 
+import jdk.nashorn.internal.runtime.Debug;
 import models.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -8,7 +9,9 @@ import org.testng.annotations.Test;
 public class Login extends TestBase {
 
 
+
     @Test
+
     public void loginLogOutTest() throws InterruptedException {
         app.cleanCokea();
         app.getSession().login();
@@ -66,7 +69,7 @@ public class Login extends TestBase {
     public void negativeloginWithOutPasswordTest() throws InterruptedException {
         app.cleanCokea();
         app.getSession().clickLoginButton();
-        app.getSession().fillLoginForm(new User().setEmail("maxmayzel@gmail.com"));
+        app.getSession().fillLoginForm(new User().withEmail("maxmayzel@gmail.com"));
         app.getSession().confirmLogin();
         Assert.assertTrue(app.getSession().isErrorPresent(), "Enter your password");
 //        app.cleanCokea();

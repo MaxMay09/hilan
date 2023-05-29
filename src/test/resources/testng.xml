@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="reg" verbose="1" >
+    <test name="reg"   >
+        <packages>
+            <package name="com.max.qa.hilan.tests.BoardCreationTest" />
+        </packages>
+    </test>
+</suite>

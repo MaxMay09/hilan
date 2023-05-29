@@ -19,10 +19,10 @@ public class TestBase {
 
     }
 
-//    @AfterMethod
-//    public void TearDown() {
-//        app.stop();
-//    }
+    @AfterMethod
+    public void TearDown() {
+        app.stop();
+    }
 
 
 }

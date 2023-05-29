@@ -7,7 +7,7 @@ public class Board {
         return boardName;
     }
 
-    public Board setBoardName(String boardName) {
+    public Board withBoardName(String boardName) {
         this.boardName = boardName;
         return this;
     }

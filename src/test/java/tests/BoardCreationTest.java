@@ -20,7 +20,7 @@ public class BoardCreationTest  extends TestBase{
             String boardName = "hhh";
             app.getBoard().clickOnPlusButton();
             app.getBoard().selectCreateNewBoard();
-            app.getBoard().fillBoarCreation(new Board().setBoardName(boardName));
+            app.getBoard().fillBoarCreation(new Board().withBoardName(boardName));
             app.getBoard().confirmBoardCreation();
             app.getBoard().waitForListButtonInTheBoard();
             String title = app.getTitle();

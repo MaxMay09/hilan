@@ -1,6 +1,7 @@
 package wf;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import models.Card;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterMethod;
 
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -18,6 +20,9 @@ public class ApplicationManager {
     public static Actions actions;
     BoardHelper board;
     SessionHelper session;
+    ListHelper list;
+    CardHelper card;
+
 
 
 
@@ -28,8 +33,18 @@ public class ApplicationManager {
         board = new BoardHelper(wd);
         session = new SessionHelper(wd);
         actions = new Actions(wd);
+        list = new ListHelper(wd);
+        card = new CardHelper(wd);
 
 
+    }
+
+    public CardHelper getCard() {
+        return card;
+    }
+
+    public ListHelper getList() {
+        return list;
     }
 
     public void stop() {
@@ -62,10 +77,10 @@ public class ApplicationManager {
 
     }
 
-//    @AfterMethod
-//    public void tearDown() {
-//        wd.quit();
-//    }
+    @AfterMethod
+    public void tearDown() {
+        wd.quit();
+    }
 
     public String getTitle() {
         return   wd.findElement(By.xpath("//h1[normalize-space()='hhh']")).getText();

@@ -14,9 +14,18 @@ dependencies {
     implementation 'org.testng:testng:7.5'
     implementation 'io.github.bonigarcia:webdrivermanager:5.1.1'
     implementation 'org.slf4j:log4j-over-slf4j:2.0.5'
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+
 
 }
 
 test {
     useTestNG()
+}
+
+task reg(type: Test){
+    useTestNG{
+        suites 'src/test/resources/testng.xml'
+    }
 }
